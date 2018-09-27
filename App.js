@@ -3,6 +3,7 @@ import { Container, Header, Content, Card, CardItem, Text, Icon, Button } from '
 import tweets from './twitterApiResponse.json';
 import Hyperlink from 'react-native-hyperlink';
 import { Linking } from 'react-native';
+import moment from 'moment';
 
 export default class App extends React.Component {
   
@@ -21,9 +22,10 @@ export default class App extends React.Component {
                   <Text>{tweet.user.name}</Text>
                 </CardItem>
                 <CardItem style={{marginTop: -10}}>
-                  <Hyperlink linkStyle={{ color: '#2980b9'}} onPress={ () => Linking.openURL('https://twitter.com/BlockchainAG')}>
-                    <Text>{`@${tweet.user.screen_name}`}</Text>
-                  </Hyperlink>
+                  <Text style={{color: '#2980b9'}} onPress={ () => Linking.openURL('https://twitter.com/BlockchainAG')}>{`@${tweet.user.screen_name}`}</Text>
+                </CardItem>
+                <CardItem>
+                  <Text>{moment(tweet.created_at).format('DD. MM. YY')}</Text>
                 </CardItem>
                 <CardItem>
                   <Hyperlink linkStyle={{ color: '#2980b9'}} onPress={ (url) => Linking.openURL(url)}>
@@ -31,7 +33,7 @@ export default class App extends React.Component {
                   </Hyperlink>
                 </CardItem>
                 <CardItem footer>
-                  <Button iconLeft rounded onPress={ () => Linking.openURL('https://twitter.com/BlockchainAG')} style={{backgroundColor: '#2980b9'}}>
+                  <Button iconLeft rounded onPress={ () => Linking.openURL('https://twitter.com/BlockchainAG')} style={{backgroundColor: '#2980b9', marginBottom: 10}}>
                     <Icon name='logo-twitter' />
                     <Text>Follow</Text>
                   </Button>
