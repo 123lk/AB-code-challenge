@@ -1,4 +1,4 @@
-# Advaned Blockchain AG code challenge
+# Advanced Blockchain AG code challenge
 
   ## Installation 
 You will need to have Node.js installed to run this application.  Type the below command into the terminal to check if you already have node installed;
