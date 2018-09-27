@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Header, Content, Card, CardItem, Text, Icon, Button } from 'native-base';
-import data from './data.json';
+import tweets from './twitterApiResponse.json';
 
 export default class App extends React.Component {
   
@@ -9,27 +9,24 @@ export default class App extends React.Component {
       <Container>
         <Header />
         <Content>
-          {data.tweets.map((tweet) => {
+          {tweets.map((tweet) => {
             return (
               <Card key={tweet.id}>
                 <CardItem header>
                   <Icon active name="logo-twitter"/>
                 </CardItem>
                 <CardItem>
-                  <Text>{tweet.name}</Text>
+                  <Text>{tweet.user.name}</Text>
                 </CardItem>
                 <CardItem>
-                  <Text>{tweet.handle}</Text>
+                  <Text>{`@${tweet.user.screen_name}`}</Text>
                 </CardItem>
                 <CardItem>
-                  <Text>{tweet.text1}</Text>
-                </CardItem>
-                <CardItem>
-                  <Text>{tweet.text2}</Text>
+                  <Text>{tweet.text}</Text>
                 </CardItem>
                 <CardItem footer>
-                <Button iconLeft rounded>
-                  <Icon name='logo-twitter' />
+                  <Button iconLeft rounded>
+                    <Icon name='logo-twitter' />
                     <Text>Follow</Text>
                   </Button>
                 </CardItem>
