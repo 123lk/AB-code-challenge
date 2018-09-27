@@ -9,13 +9,18 @@ export default class App extends React.Component {
       <Container>
         <Header />
         <Content>
-          <Card>
-            <CardItem>
-              <Icon active name="logo-twitter" />
-              <Text>Tweet</Text>
-              <Right />
-             </CardItem>
-           </Card>
+          {data.tweets.map((tweet) => {
+            return (
+              <Card key={tweet.id}>
+                <CardItem header>
+                  <Icon active name="logo-twitter"/>
+                 </CardItem>
+                 <CardItem>
+                  <Text>{tweet.text1}</Text>
+                 </CardItem>
+               </Card>
+            );
+          })}
         </Content>
       </Container>
     );
